@@ -41,7 +41,7 @@ namespace LoanManagementLoanService.Controllers
         {
             if (id != loan.Id) return BadRequest();
             await _service.UpdateLoanAsync(loan);
-            return NoContent();
+            return Ok();
         }
 
         [HttpPut("delete/{id}")]
@@ -53,7 +53,7 @@ namespace LoanManagementLoanService.Controllers
             loan.isActive = false;
 
             await _service.UpdateLoanAsync(loan);
-            return NoContent();
+            return Ok();
         }
 
         //HardDelete
@@ -61,7 +61,7 @@ namespace LoanManagementLoanService.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await _service.DeleteLoanAsync(id);
-            return NoContent();
+            return Ok();
         }
     }
 
